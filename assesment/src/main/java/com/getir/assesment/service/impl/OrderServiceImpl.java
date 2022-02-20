@@ -31,12 +31,13 @@ public class OrderServiceImpl implements OrderService {
 	private BookRepository bookRepository;
 
 	@Autowired
-	public OrderServiceImpl(OrderRepository orderRepository,CustomerRepository customerRepository, BookRepository bookRepository) {
+	public OrderServiceImpl(OrderRepository orderRepository, CustomerRepository customerRepository,
+			BookRepository bookRepository) {
 		this.orderRepository = orderRepository;
 		this.customerRepository = customerRepository;
 		this.bookRepository = bookRepository;
 	}
-	
+
 	@Override
 	public OrderDTO findById(Long id) {
 		Order order = orderRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("siparis yok."));
@@ -48,22 +49,24 @@ public class OrderServiceImpl implements OrderService {
 	public OrderDTO createOrder(OrderDTO orderDTO) {
 		String orderCode = UUID.randomUUID().toString();
 		List<Order> ordersACustomer = orderRepository.findByOrderCode(orderDTO.getOrderCode());
-		if (ordersACustomer.size() == 0) {
+		if (CollectionUtils.isEmpty(ordersACustomer)) {
 			Order newOrder = Order.fromDTOForOrder(orderDTO);
 			newOrder.setOrderCode(orderCode);
 			Customer cust = customerRepository.findByCustomerNo(orderDTO.getCustomer().getCustomerNo());
+			if (cust == null) {
+				throw new EntityNotFoundException("musteri yok.");
+			}
 			newOrder.setCustomer(cust);
-			
+
 			if (!CollectionUtils.isEmpty(orderDTO.getItems())) {
 				orderDTO.getItems().forEach(f -> {
-					 Book book =bookRepository.findByBookCode(f.getBook().getBookCode());
-					 if(book.getStock() != 0){
-						 book.setStock(book.getStock() - 1);
-					 }else {
-						 throw new RuntimeException("stok yok.");
-					 }
-					newOrder.getItems()
-							.add(new OrderItem(newOrder,book));
+					Book book = bookRepository.findByBookCode(f.getBook().getBookCode());
+					if (book != null && book.getStock() != 0) {
+						book.setStock(book.getStock() - 1);
+					} else {
+						throw new RuntimeException("stok yok.");
+					}
+					newOrder.getItems().add(new OrderItem(newOrder, book));
 				});
 			}
 			newOrder.setVersion(Long.parseLong("1"));
@@ -76,12 +79,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<OrderDTO> findOrdersBetweenToDate(LocalDate startDate, LocalDate endDate) {
 		List<OrderDTO> orderDTOList = new ArrayList<OrderDTO>();
-		List<Order> orderList = orderRepository.findByOrderDateBetween(startDate.atStartOfDay(), endDate.atTime(LocalTime.now()));
-		if(orderList != null) {
-		orderList.forEach(order -> {
-			orderDTOList.add(order.toDTO());
-		});}
-		else {
+		List<Order> orderList = orderRepository.findByOrderDateBetween(startDate.atStartOfDay(),
+				endDate.atTime(LocalTime.now()));
+		if (orderList != null) {
+			orderList.forEach(order -> orderDTOList.add(order.toDTO()));
+		} else {
 			throw new RuntimeException("siparis yok.");
 		}
 		return orderDTOList;

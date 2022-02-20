@@ -37,7 +37,7 @@ public class BookServiceTest {
 		book.setBookCode("dsadasdsa-sadasd-644erer-9e8rere98");
 		book.setBookName("deneme kitap ismi");
 		book.setPrice(new BigDecimal(10));
-		book.setStock(9);
+		book.setStock(19);
 		return book;
 	}
 	

@@ -14,7 +14,7 @@ import com.getir.assesment.service.BookService;
 
 @Service
 public class BookServiceImpl implements BookService {
-	
+
 	private BookRepository bookRepository;
 
 	@Autowired
@@ -31,17 +31,19 @@ public class BookServiceImpl implements BookService {
 	@Override
 	@Transactional
 	public BookDTO updateBookStock(UpdateBookStockRequest request) {
-		Book isExistBook = bookRepository.findByBookCode(request.getBookCode());
-		if(isExistBook != null) {
-			if(request.getIncreaseStock()) {
-			isExistBook.setStock(isExistBook.getStock() + request.getStock());
-			}else {
-				isExistBook.setStock(isExistBook.getStock() - request.getStock());	
+		Book book = bookRepository.findByBookCode(request.getBookCode());
+		if (book != null) {
+			if (request.getIncreaseStock()) {
+				book.setStock(book.getStock() + request.getStock());
+			} else if (book.getStock().compareTo(request.getStock()) >= 0) {
+				book.setStock(book.getStock() - request.getStock());
+			} else {
+				throw new RuntimeException("stok sayisi 0 dan kucuk olamaz");
 			}
-		}else {
+		} else {
 			throw new EntityNotFoundException("kitap yok.");
 		}
-		bookRepository.save(isExistBook);
-		return isExistBook.toDTO();
+		bookRepository.save(book);
+		return book.toDTO();
 	}
 }

@@ -23,15 +23,15 @@ public class BookController {
 
 	@Autowired
 	private BookService bookService;
-	
+
 	@PostMapping(value = "/")
-	private ResponseEntity<BookDTO> saveBook(@RequestBody BookDTO book){
+	private ResponseEntity<BookDTO> saveBook(@RequestBody BookDTO book) {
 		return ResponseEntity.ok(bookService.saveBook(book));
 	}
-	
+
 	@PutMapping(value = "/")
 	private ResponseEntity<BookDTO> updateBookStock(@RequestBody UpdateBookStockRequest request){
 		return ResponseEntity.ok(bookService.updateBookStock(request));
 	}
-		
+
 }

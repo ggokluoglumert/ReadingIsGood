@@ -32,6 +32,7 @@ import com.getir.assesment.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService {
 
 	private CustomerRepository customerRepository;
+
 	@Autowired
 	public CustomerServiceImpl(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
@@ -59,13 +60,16 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<StatisticResponse> listOrdersStatisticForACustomer(Long customerNo) {
 		List<StatisticResponse> response = new ArrayList<StatisticResponse>();
 		Customer customer = customerRepository.findByCustomerNo(customerNo);
+		if (customer == null) {
+			throw new EntityNotFoundException("musteri yok.");
+		}
 		Map<YearMonth, List<Order>> groupingOrderByDate = customer.getOrders().stream()
 				.collect(Collectors.groupingBy(order -> YearMonth.from(order.getOrderDate())));
 		groupingOrderByDate.forEach((k, v) -> {
 			StatisticResponse resp = new StatisticResponse();
 			resp.setMonth(k.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH));
 			resp.setTotalOrderCount(v.size());
-			Supplier<Stream<List<OrderItem>>> items =()-> v.stream().map(Order::getItems);
+			Supplier<Stream<List<OrderItem>>> items = () -> v.stream().map(Order::getItems);
 			resp.setTotalBookCount(items.get().collect(Collectors.summingInt(List::size)));
 			resp.setTotalPurchasedAmount(items.get().map(List::iterator).map(Iterator<OrderItem>::next)
 					.map(OrderItem::getBook).map(Book::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
