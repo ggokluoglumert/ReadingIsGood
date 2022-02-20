@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "88c533ba-1ddc-40da-a72d-7348bbc0cfc6",
+		"name": "ggm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCustomerInfoDetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/customers/200200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"200200"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getCustomerInfoDetails",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customers/200200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"200200"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 17 Feb 2022 21:11:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"version\": 1,\n        \"customer\": {\n            \"id\": 1,\n            \"version\": 1,\n            \"customerName\": \"gizem\",\n            \"customerNo\": \"200200\"\n        },\n        \"book\": null,\n        \"orderDate\": \"2022-02-19T00:00:00\"\n    },\n    {\n        \"id\": 1,\n        \"version\": 1,\n        \"customer\": {\n            \"id\": 1,\n            \"version\": 1,\n            \"customerName\": \"gizem\",\n            \"customerNo\": \"200200\"\n        },\n        \"book\": null,\n        \"orderDate\": \"2022-02-17T00:00:00\"\n    },\n    {\n        \"id\": 2,\n        \"version\": 1,\n        \"customer\": {\n            \"id\": 1,\n            \"version\": 1,\n            \"customerName\": \"gizem\",\n            \"customerNo\": \"200200\"\n        },\n        \"book\": null,\n        \"orderDate\": \"2022-02-18T00:00:00\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getOrderInfoDetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/orders/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getOrderInfoDetails",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/orders/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 17 Feb 2022 21:11:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"version\": 1,\n    \"customer\": {\n        \"id\": 1,\n        \"version\": 1,\n        \"customerName\": \"gizem\",\n        \"customerNo\": \"200200\"\n    },\n    \"book\": null,\n    \"orderDate\": \"2022-02-17T00:00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"version\": 1,\r\n    \"customerName\": \"gizem\",\r\n    \"customerNo\": \"200200\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createCustomer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"version\": 1,\r\n    \"customerName\": \"gizemburak\",\r\n    \"customerNo\": \"200700\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 14:21:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 5,\n    \"version\": 1,\n    \"customerName\": \"gizemburak\",\n    \"customerNo\": 200700\n}"
+				}
+			]
+		},
+		{
+			"name": "createBook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"version\": 1,\r\n    \"bookName\": \"aşk-ı memnu\",\r\n    \"bookCode\": \"AA200\",\r\n    \"stock\": 9,\r\n    \"price\": 20.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createBook",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"version\": 1,\r\n    \"bookName\": \"aşk-ı memnu\",\r\n    \"bookCode\": \"AA200\",\r\n    \"stock\": 9,\r\n    \"price\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 18 Feb 2022 14:32:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"version\": 1,\n    \"bookName\": \"aşk-ı memnu\",\n    \"bookCode\": \"AA200\",\n    \"stock\": 9,\n    \"price\": 10\n}"
+				}
+			]
+		},
+		{
+			"name": "createOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer\": {\r\n        \"customerName\": \"gizem\",\r\n        \"customerNo\": \"200200\"\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"book\": {\r\n                \"version\": 1,\r\n                \"bookName\": \"aşk-ı memnu\",\r\n                \"bookCode\": \"AA200\",\r\n                \"stock\": 9,\r\n                \"price\": 20.00\r\n            }\r\n        }\r\n    ],\r\n    \"orderDate\": \"2022-02-18T18:28:44.12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createOrder",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer\": {\r\n        \"customerName\": \"gizem\",\r\n        \"customerNo\": \"200200\"\r\n    },\r\n    \"items\": [\r\n        {\r\n            \"book\": {\r\n                \"version\": 1,\r\n                \"bookName\": \"aşk-ı memnu\",\r\n                \"bookCode\": \"AA200\",\r\n                \"stock\": 9,\r\n                \"price\": 10.00\r\n            }\r\n        }\r\n    ],\r\n    \"orderDate\": \"2022-02-18T18:28:44.12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Feb 2022 12:44:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"version\": 1,\n    \"customer\": {\n        \"id\": 1,\n        \"version\": 1,\n        \"customerName\": \"gizem\",\n        \"customerNo\": 200200\n    },\n    \"orderDate\": \"2022-02-18T18:28:44.12345\",\n    \"orderCode\": \"223905d3-6877-47a6-9c29-716df328667a\",\n    \"status\": \"DELIVERED\",\n    \"items\": [\n        {\n            \"id\": 4,\n            \"version\": null,\n            \"book\": {\n                \"id\": 2,\n                \"version\": 1,\n                \"bookName\": \"aşk-ı memnu\",\n                \"bookCode\": \"AA200\",\n                \"stock\": 8,\n                \"price\": 10\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "updateBookStock / increaseOrDecreaseStock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookCode\": \"AA200\",\r\n    \"stock\": 10,\r\n    \"increaseStock\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/books/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"books",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "updateBookStock",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookCode\": \"AA200\",\r\n    \"stock\": 10,\r\n    \"increaseStock\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 19 Feb 2022 12:23:58 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"version\": 1,\n    \"bookName\": \"aşk-ı memnu\",\n    \"bookCode\": \"AA200\",\n    \"stock\": 19,\n    \"price\": 10\n}"
+				}
+			]
+		},
+		{
+			"name": "listOrdersBeetweenTwoDate",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/orders/2022-02-17/2022-02-19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"2022-02-17",
+						"2022-02-19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listOrdersStatistic",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZ29rbHVvZ2x1bWVydCIsImV4cCI6MTY0NTQyNzY3OSwiaWF0IjoxNjQ1MzkxNjc5fQ.rSMdmi-c-MCsqFxmjNM6sT7r5nXMgeeMi50C2W7_3Zc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/statistic/200200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statistic",
+						"200200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getToken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"ggokluoglumert\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
