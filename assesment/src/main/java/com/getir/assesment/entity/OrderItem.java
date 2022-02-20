@@ -13,11 +13,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderItem extends BaseEntity{
+public class OrderItem extends BaseEntity {
 
 	@ManyToOne
 	private Order order;
-	
+
 	@ManyToOne
 	private Book book;
 }

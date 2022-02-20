@@ -1,15 +1,16 @@
 package com.getir.assesment.service;
 
-import java.util.Set;
+import java.util.List;
 
 import com.getir.assesment.dto.CustomerDTO;
 import com.getir.assesment.dto.OrderDTO;
-import com.getir.assesment.entity.Order;
+import com.getir.assesment.response.StatisticResponse;
 
 public interface CustomerService {
-	
-	public CustomerDTO saveCustomer(CustomerDTO customerDTO);
-	
-	public Set<Order> findByOrdersWithCustomerId(Long id);
 
+	public CustomerDTO saveCustomer(CustomerDTO customerDTO);
+
+	public List<OrderDTO> findByOrdersWithCustomerNo(Long customerNo);
+
+	public List<StatisticResponse> listOrdersStatisticForACustomer(Long customerNo);
 }

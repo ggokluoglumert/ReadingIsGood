@@ -13,8 +13,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CustomerDTO extends BaseDTO{
 	
-	@NotNull
 	private String customerName;
 	
-
+	private Long customerNo;
+	
 }

@@ -8,4 +8,5 @@ import com.getir.assesment.entity.Book;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long>{
 
+	public Book findByBookCode(String bookCode);
 }

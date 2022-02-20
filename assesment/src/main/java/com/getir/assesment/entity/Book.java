@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 
 import com.getir.assesment.dto.BookDTO;
+import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +20,9 @@ import lombok.Setter;
 public class Book extends BaseEntity{
 
 	private String bookName;
+	
+	@NotNull
+	private String bookCode;
 	
 	private Integer stock;
 	
