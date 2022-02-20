@@ -13,5 +13,6 @@ public class ReadingIsGoodApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ReadingIsGoodApplication.class, args);
 	}
+	
 
 }
